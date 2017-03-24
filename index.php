@@ -21,8 +21,6 @@
 ?>
                 <div id="contents">
 
-                    <p>これを修正するとサーバーに反映されるか</p>
-
                     <main id="main">
                     </main>
 
