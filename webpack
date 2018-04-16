@@ -1,0 +1,51 @@
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+module.exports = {
+
+    entry: {
+        //出力先階層/ファイル名(拡張子省略)
+        "js/bundle": './src/jsx/index.jsx',
+        //"concept/js/concept": './src/jsx/concept.jsx',
+    },
+    output: {
+        path: path.join(__dirname, 'html'),
+        filename: "[name].min.js"
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js[x]?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+               
+            },
+            {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                loader: "awesome-typescript-loader"
+            },
+            {   
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                loader: "ts-loader"
+              },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+                loader: "file-loader?name=images/[name].[ext]"
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css-loader!sass-loader'),
+            },
+        ]
+    },
+    plugins: [
+        new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
+        new webpack.optimize.UglifyJsPlugin()
+    ],
+    resolve: {
+        extensions: ['.ts', '.jsx', '.js']
+    }
+};
