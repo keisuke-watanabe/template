@@ -3,18 +3,20 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-
+    mode: 'production',
+    //テストの場合は
+    //mode: 'development', 
     entry: {
         //出力先階層/ファイル名(拡張子省略)
         "js/bundle": './src/jsx/index.jsx',
         //"concept/js/concept": './src/jsx/concept.jsx',
     },
     output: {
-        path: path.join(__dirname, 'html'),
+        path: path.resolve(__dirname, 'html'),
         filename: "[name].min.js"
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js[x]?$/,
                 loader: 'babel-loader',
@@ -43,7 +45,9 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+          })
     ],
     resolve: {
         extensions: ['.ts', '.jsx', '.js']
