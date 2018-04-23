@@ -1,0 +1,45 @@
+{
+  "name": "developjapan",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^3.2.1",
+    "hyperapp-fetch": "^1.0.1",
+    "jshint": "^2.9.5",
+    "node-sass": "^4.8.3",
+    "parcel-bundler": "^1.7.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "ts-loader": "2.3.2",
+    "tsd": "^0.6.5",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.6.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-stream": "^4.0.3"
+  },
+  "dependencies": {
+    "@hyperapp/html": "^1.1.1",
+    "hyperapp": "^1.2.5"
+  },
+  "description": ""
+}
